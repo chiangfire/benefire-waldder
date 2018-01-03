@@ -15,7 +15,13 @@
 	<url></url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<springboot.version>1.5.9.RELEASE</springboot.version>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
 	</dependencies>
 </project>
