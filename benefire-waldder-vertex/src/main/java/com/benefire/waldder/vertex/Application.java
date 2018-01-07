@@ -127,6 +127,13 @@ public class Application {
 			return localConnectTimeout;
 		}
 
+		/**
+		 * @see <a href="http://www.mkyong.com/java/java-convert-ip-address-to-decimal-number/">
+		 *          http://www.mkyong.com/java/java-convert-ip-address-to-decimal-number/
+		 *      </a>
+		 * @param ipv4
+		 * @return
+		 */
 		private String parseIPv4(long ipv4) {
 			
 			return String.join(".", String.valueOf(((ipv4 >> 24) & 0xFF)), String.valueOf(((ipv4 >> 16) & 0xFF)),
