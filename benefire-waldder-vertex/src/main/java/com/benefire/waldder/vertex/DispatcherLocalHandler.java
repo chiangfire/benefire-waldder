@@ -12,11 +12,9 @@ import io.netty.util.internal.logging.InternalLoggerFactory;
 /**
  * @author JIANG
  */
-public class ConnectionLocalHandler extends ChannelInboundHandlerAdapter {
+public class DispatcherLocalHandler extends ChannelInboundHandlerAdapter {
 	
 	public static final String DEFAULT_HOST = "127.0.0.1";
-	private static final int LOCAL_CONNECT_TIMEOUT = 10000;
-	
 	
 	private final InternalLogger LOG = InternalLoggerFactory.getInstance(getClass());
 
@@ -24,13 +22,13 @@ public class ConnectionLocalHandler extends ChannelInboundHandlerAdapter {
 		Channel inboundChannel = ctx.channel();
 		Bootstrap b = new Bootstrap();
 		b.group(inboundChannel.eventLoop()).channel(ctx.channel().getClass())
-		.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, LOCAL_CONNECT_TIMEOUT)
+		.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, Application.getInstance().getLocalConnectTimeout())
 		.handler(new ChannelInitializer<SocketChannel>() {
 			@Override
 			protected void initChannel(SocketChannel ch) throws Exception {
-				ch.pipeline().addLast(new HexDumpRelayLocalHandler(inboundChannel, msg));
+				ch.pipeline().addLast(new ChannelLocalHandler(inboundChannel, msg));
 			}
-		}).connect(DEFAULT_HOST, 8082);
+		}).connect(DEFAULT_HOST, Application.getInstance().getLocalPort());
 	}
 
 	@Override

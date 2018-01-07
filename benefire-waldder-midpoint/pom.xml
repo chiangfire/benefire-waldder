@@ -15,13 +15,22 @@
 	<url></url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<springboot.version>1.5.9.RELEASE</springboot.version>
+		<leveldb.version>0.10</leveldb.version>
+		<boringssl.version>2.0.7.Final</boringssl.version>
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-			<version>${springboot.version}</version>
+			<groupId>io.netty</groupId>
+			<artifactId>netty-tcnative-boringssl-static</artifactId>
+			<version>${boringssl.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.iq80.leveldb</groupId>
+			<artifactId>leveldb</artifactId>
+			<version>${leveldb.version}</version>
+		</dependency>
+		<!-- <dependency> <groupId>io.netty</groupId> <artifactId>netty-tcnative</artifactId> 
+			<version>${boringssl.version}</version> </dependency> -->
 	</dependencies>
+
 </project>

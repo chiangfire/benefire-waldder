@@ -12,12 +12,12 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
 /**
  * @author JIANG
  */
-public class HexDumpRelayLocalHandler extends ChannelInboundHandlerAdapter {
+public class ChannelLocalHandler extends ChannelInboundHandlerAdapter {
 
 	private final Channel inboundChannel;
 	private final Object msg;
 
-	public HexDumpRelayLocalHandler(Channel inboundChannel, Object msg) {
+	public ChannelLocalHandler(Channel inboundChannel, Object msg) {
 		this.inboundChannel = inboundChannel;
 		this.msg = msg;
 	}
